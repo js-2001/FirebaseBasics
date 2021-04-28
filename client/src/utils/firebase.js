@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 import 'firebase/firestore';
-
+import 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDlPDtEoo8ed611FqJ1y76K83LfNphj8WQ",
@@ -14,12 +14,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
+firebase.auth();
 
 //Access Firestore
 const db = firebase.firestore();
 export const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 export const carsCollection = db.collection('Cars');
+export const usersCollection = db.collection('Users');
 export const siteRef = db.doc("Site/business");
 export const employeesRef = db.collection('Site').doc("employees").collection("admins");
 
